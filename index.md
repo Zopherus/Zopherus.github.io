@@ -3,6 +3,11 @@ Document classification is a traditional problem in text mining and Natural Lang
 
 The dataset we use is the [arXiv Dataset](https://www.kaggle.com/Cornell-University/arxiv) on Kaggle. It contains more than 1.7 million scholarly paper across STEM and is a mirror of the original ArXiv dataset maintained by Cornell University. Among the features, two most useful for us is categories (will be used in the supervised learning part) and abstract.
 ## Method
+### Feature Extraction
+
+### Unsupervised Learning
+
+### Supervised Learning
 
 ## Result
 
