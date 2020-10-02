@@ -4,10 +4,10 @@ Document classification is a traditional problem in text mining and Natural Lang
 The dataset we use is the [arXiv Dataset](https://www.kaggle.com/Cornell-University/arxiv) on Kaggle. It contains more than 1.7 million scholarly paper across STEM and is a mirror of the original ArXiv dataset maintained by Cornell University. Among the features, two most useful for us is categories (will be used in the supervised learning part) and abstract.
 ## Method
 ### Feature Extraction
-Bag of words and word embedding is two classic method to get a feature representation of a block of text. They are preferred in different models.
+Bag-of-words and word embedding is two classic method to get a feature representation of a block of text. They are preferred in different models.
 
 ### Unsupervised Learning
-
+For unsupervised learning, we extract the features in the baf-of-words style. After applying dimensionality reduction, we train K-means and Gaussian Mixture Model(GMM) on the data. We go through the hyperparameter tuning process to determine the optimal hyperparameter, such as number of classes, for those models.
 ### Supervised Learning
 
 ## Result
