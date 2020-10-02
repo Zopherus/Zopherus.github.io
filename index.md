@@ -8,7 +8,9 @@ Bag-of-words and word embedding is two classic method to get a feature represent
 
 ### Unsupervised Learning
 For unsupervised learning, we extract the features in the baf-of-words style. After applying dimensionality reduction, we train K-means and Gaussian Mixture Model(GMM) on the data. We go through the hyperparameter tuning process to determine the optimal hyperparameter, such as number of classes, for those models.
+
 ### Supervised Learning
+We plan to train various supervised classifier including Naive Bayes, SVM, and neural network on our data. Note that different models utilized different feature extraction techniques. For neural network, we will use the cross-entropy loss function.
 
 ## Result
 
