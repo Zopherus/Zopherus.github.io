@@ -32,6 +32,11 @@ We apply principal component analysis to our data. We do this for two purposes. 
 
 We trained Gaussian Mixture Model (GMM) on the data. We go through the hyperparameter tuning process to determine the optimal hyperparameters, such as number of classes, for those models. The results of clustering using GMM may help us train a better supervised classifier later. One technique that may utilize clustering methods is introduced by (Nigam et al. 2000), a semi-supervised method using EM and Naive bayes when labeled data is limited.
 
+### Hyperparameter Tuning
+
+### Evaluation
+
+### Experiment and Result
 
 ## Supervised Learning
 We plan to train various supervised classifiers including Naive Bayes, SVM, and neural network on our data. Note that different models utilize different feature extraction techniques. For neural network, we will use the cross-entropy loss function.
