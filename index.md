@@ -21,6 +21,7 @@ We used the term frequency–inverse document frequency (tf-idf) (Sparck Jones, 
 </p>
 
 Below is the visualization of the correlation matrices before and after applying tf-idf.
+
 <img src="/images/original-correlation.png" width="400" height="400" />
 <img src="/images/correlation-tf-idf.png" width="400" height="400" />
 
