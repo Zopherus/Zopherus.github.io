@@ -33,6 +33,10 @@ We apply principal component analysis to our data. We do this for two purposes. 
 We trained Gaussian Mixture Model (GMM) on the data. We go through the hyperparameter tuning process to determine the optimal hyperparameters, such as number of classes, for those models. The results of clustering using GMM may help us train a better supervised classifier later. One technique that may utilize clustering methods is introduced by (Nigam et al. 2000), a semi-supervised method using EM and Naive bayes when labeled data is limited.
 
 ### Hyperparameter Tuning
+Many hyper-parameters are involved in our processing of the texts. For instance, only the words of top k frequencies are used as features in the bag-of-word representation since it is impractical to use all of the unique words as features. There are other hyper-parameters such as the number of principal components in PCA and the number of clusters in GMM. 
+
+Although the number of classes in the ground truth is known, we still use the ELBOW method to determine the best choice for the number of clustering. In the ELBOW method, we use 5245 CS articles and we set the maximum number of vocabulary to be 20000 and the number of principal components to be 200. Below is the result of the ELBOW method.
+
 
 ### Evaluation
 
