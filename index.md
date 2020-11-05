@@ -20,10 +20,12 @@ We used the term frequency–inverse document frequency (tf-idf) (Sparck Jones, 
   <img src="https://latex.codecogs.com/gif.latex?\rho=\dfrac{Cov(X,Y)}{\sigma_x&space;\sigma_y}" title="\rho=\dfrac{Cov(X,Y)}{\sigma_x \sigma_y}" />
 </p>
 
-Below is the visualization of the correlation matrices before and after applying tf-idf.
+Below is the visualization of the correlation matrices before and after applying tf-idf. We can see that most pairs of the features (unique words in the vocabulary) are not correlated.
 
 <img src="/images/original-correlation.png" width="400" height="400" />
 <img src="/images/correlation-tf-idf.png" width="400" height="400" />
+
+However, note that these matrices only show the first 50 feartures. A sorting of pairs of words based on their correlation coefficients shows that there are some correlated features.
 
 The visualization for the covariance matrices before and after applying tf-idf show the change of scale.
 
