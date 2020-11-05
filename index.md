@@ -37,6 +37,7 @@ Many hyper-parameters are involved in our processing of the texts. For instance,
 
 Although the number of classes in the ground truth is known, we still use the ELBOW method to determine the best choice for the number of clustering. In the ELBOW method, we use 5245 CS articles and we set the maximum number of vocabulary to be 20000 and the number of principal components to be 200. Below is the result of the ELBOW method.
 
+<img src="/images/nc-scores.png" width="600" height="400" />
 
 ### Evaluation
 
