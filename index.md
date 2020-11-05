@@ -27,6 +27,12 @@ Below is the visualization of the correlation matrices before and after applying
 
 The visualization for the covariance matrices before and after applying tf-idf show the change of scale.
 
+### Dimensionality Reduction and Clustering
+We apply principal component analysis to our data. We do this for two purposes. The first goal is to reduce the dimension of the data so running the clustering algorithm such as K-means and GMM is less expensive. Another goal of doing PCA is to avoid the curse of dimensionality since the Bag-of-Word representation usually has a large number of features.
+
+We trained Gaussian Mixture Model (GMM) on the data. We go through the hyperparameter tuning process to determine the optimal hyperparameters, such as number of classes, for those models. The results of clustering using GMM may help us train a better supervised classifier later. One technique that may utilize clustering methods is introduced by (Nigam et al. 2000), a semi-supervised method using EM and Naive bayes when labeled data is limited.
+
+
 ## Supervised Learning
 We plan to train various supervised classifiers including Naive Bayes, SVM, and neural network on our data. Note that different models utilize different feature extraction techniques. For neural network, we will use the cross-entropy loss function.
 
