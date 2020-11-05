@@ -30,7 +30,11 @@ The visualization for the covariance matrices before and after applying tf-idf s
 ### Dimensionality Reduction and Clustering
 We apply principal component analysis to our data. We do this for two purposes. The first goal is to reduce the dimension of the data so running the clustering algorithm such as K-means and GMM is less expensive. Another goal of doing PCA is to avoid the curse of dimensionality since the Bag-of-Word representation usually has a large number of features.
 
-We trained Gaussian Mixture Model (GMM) on the data. We go through the hyperparameter tuning process to determine the optimal hyperparameters, such as number of classes, for those models. The results of clustering using GMM may help us train a better supervised classifier later. One technique that may utilize clustering methods is introduced by (Nigam et al. 2000), a semi-supervised method using EM and Naive bayes when labeled data is limited.
+We trained Gaussian Mixture Model (GMM) on the data. Below is the distribution of classes in the ground truth and the distribution of classes in the clustering of GMM.
+
+
+
+We go through the hyperparameter tuning process to determine the optimal hyperparameters, such as number of classes, for those models. The results of clustering using GMM may help us train a better supervised classifier later. One technique that may utilize clustering methods is introduced by (Nigam et al. 2000), a semi-supervised method using EM and Naive bayes when labeled data is limited.
 
 ### Evaluation
 We used the Normalized Mutual Information (NMI) metric to evaluate our clustering, which gives a score from 0 to 1 describing the correlation between the ground truth clusters and our cluster results. The NMI score is computed as
