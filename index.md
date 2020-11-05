@@ -18,7 +18,7 @@ We used the term frequency–inverse document frequency (tf-idf) (Sparck Jones, 
 
 <img src="https://latex.codecogs.com/gif.latex?\rho=\dfrac{Cov(X,Y)}{\sigma_x&space;\sigma_y}" title="\rho=\dfrac{Cov(X,Y)}{\sigma_x \sigma_y}" />
 
-<img src="/images/original-correlation.png" width="200" height="200" />
+<img src="/images/original-correlation.png" width="400" height="400" />
 
 The visualization for the covariance matrices before and after applying tf-idf show the change of scale.
 
