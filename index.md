@@ -14,8 +14,10 @@ From the Computer Science articles, we examine their abstracts and preprocess th
 
 For performance reasons, we trim the vocabulary to only the most frequently used K (hyperparameter) number of words. Then, we extract the features using the bag-of-words method: each article represents a data point, where each feature corresponds to the frequency of a word appearing.
 
-We used the term frequency–inverse document frequency (tf-idf) (Sparck Jones, K. 1972) statistic to modify our bag of words matrix to have each word weighted. The purpose of this modification is that we do not want to treat the words that occur in almost any documents in the same way as we treat the words that only occur in a small number of documents. We plot correlation coefficients between features. However, the correlation matrix before and after were nearly identical. This is expected since the correlation coefficients are normalized against the standard deviation of the data. 
+We used the term frequency–inverse document frequency (tf-idf) (Sparck Jones, K. 1972) statistic to modify our bag of words matrix to have each word weighted. The purpose of this modification is that we do not want to treat the words that occur in almost any documents in the same way as we treat the words that only occur in a small number of documents. We plot correlation coefficients between features. However, the correlation matrix before and after were nearly identical. This is expected since the correlation coefficients are normalized against the standard deviation of the data.
+
 <img src="https://latex.codecogs.com/gif.latex?\rho=\dfrac{Cov(X,Y)}{\sigma_x&space;\sigma_y}" title="\rho=\dfrac{Cov(X,Y)}{\sigma_x \sigma_y}" />
+
 The visualization for the covariance matrices before and after applying tf-idf show the change of scale.
 
 ## Supervised Learning
