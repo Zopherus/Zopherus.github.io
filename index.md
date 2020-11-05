@@ -38,7 +38,7 @@ We apply principal component analysis to our data. We do this for two purposes. 
 
 We trained Gaussian Mixture Model (GMM) on the data. Below is the distribution of classes in the ground truth and the distribution of classes in the clustering of GMM.
 
-
+<img src="/images/target-distribution.png" width="600" height="400" />
 
 We go through the hyperparameter tuning process to determine the optimal hyperparameters, such as number of classes, for those models. The results of clustering using GMM may help us train a better supervised classifier later. One technique that may utilize clustering methods is introduced by (Nigam et al. 2000), a semi-supervised method using EM and Naive bayes when labeled data is limited.
 
