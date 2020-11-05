@@ -33,7 +33,11 @@ We apply principal component analysis to our data. We do this for two purposes. 
 We trained Gaussian Mixture Model (GMM) on the data. We go through the hyperparameter tuning process to determine the optimal hyperparameters, such as number of classes, for those models. The results of clustering using GMM may help us train a better supervised classifier later. One technique that may utilize clustering methods is introduced by (Nigam et al. 2000), a semi-supervised method using EM and Naive bayes when labeled data is limited.
 
 ### Evaluation
-We used the Normalized Mutual Information (NMI) metric to evaluate our clustering, which gives a score from 0 to 1 describing the correlation between the ground truth clusters and our cluster results.
+We used the Normalized Mutual Information (NMI) metric to evaluate our clustering, which gives a score from 0 to 1 describing the correlation between the ground truth clusters and our cluster results. The NMI score is computed as
+
+<p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?NMI(Y,C)=\dfrac{2I(Y,C)}{H(Y)&plus;H(C)}" title="NMI(Y,C)=\dfrac{2I(Y,C)}{H(Y)+H(C)}" />
+</p>
 
 ### Hyperparameter Tuning
 Many hyper-parameters are involved in our processing of the texts. For instance, only the words of top k frequencies are used as features in the bag-of-word representation since it is impractical to use all of the unique words as features. There are other hyper-parameters such as the number of principal components in PCA and the number of clusters in GMM. 
