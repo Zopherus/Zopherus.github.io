@@ -10,9 +10,9 @@ We conducted unsupervised learning on our dataset of Computer Science articles v
 ### Data Cleaning and Feature Extraction
 We examined up to 100000 articles from the 1.7 million articles (of all fields) offered on arXiv, and selected the articles in the Computer Science category (5245 CS articles). The Computer Science category itself has several dozen subcategories, so we use those subcategories as ground truth labels to evaluate our clustering.
 
-From the Computer Science articles, we examine their abstracts and preprocess the text before we build the features representations of them. We remove the stop words from all the abstracts. The reference of English stop words we use is from NLTK (The Natural Language Toolkit) (Bird et al., 2009). Many of the stop words are pronouns, prepositions, and conjunctions such as “i”, “me” and “if”. Besides, we only keep the words that do not contain digits. The last step is to lemmatize the words. After lemmatization, “cat” and “cats” will be treated as the same word.
+From the Computer Science articles, we examine their abstracts and preprocess the text before we build the features representations of them. We remove the stop words from all the abstracts. The reference of English stop words we use is from NLTK (The Natural Language Toolkit) (Bird et al., 2009). Many of the stop words are pronouns, prepositions, and conjunctions such as “i”, “me” and “if”. Additionally, we only keep the words that do not contain digits. The last step is to lemmatize the words. After lemmatization, “cat” and “cats” will be treated as the same word.
 
-For performance reasons, we trim the vocabulary to only the most frequently used K (hyperparameter) number of words. The default value of K we used is 10000. Then, we extract the features using the bag-of-words method: each article represents a data point, where each feature corresponds to the frequency of a word appearing.
+For performance reasons, we trim the vocabulary to only the most frequently used K (a hyperparameter) number of words. The default value of K we used is 10000. Then, we extract the features using the bag-of-words method: each article represents a data point, where each feature corresponds to the frequency of a word appearing.
 
 We used the term frequency–inverse document frequency (tf-idf) (Sparck Jones, K. 1972) statistic to modify our bag of words matrix to have each word weighted. The purpose of this modification is that we do not want to treat the words that occur in almost any documents in the same way as we treat the words that only occur in a small number of documents. We plot correlation coefficients between features. However, the correlation matrix before and after were nearly identical. This is expected since the correlation coefficients are normalized against the standard deviation of the data.
 
@@ -79,20 +79,23 @@ Although the number of classes in the ground truth is known, we still use the EL
   <img src="/images/nc-score.png" width="600" height="400" />
   <em> Figure 5</em>
 </p>
-We can observe that there is little change in NMI score if we set the number of component in GMM to be greater than 30. We can see the reason in the comparison between the distribution of the ground truth and the distribution of the clustering (Figure3.1 and Figure3.2). Note that GMM does a great job of constraining the number of nonzero cluster in the range from 30 to 40 even if the we make GMM to assume that there is 50 latent components in Figure3.2. This explains the little change of NMI score if the number of componenets in GMM is set tio be greater than 30. However, the NMI score of 0.34 is not very satisfactory but it is acceptable considering the imbalanced class distribution and the number of classes being such large. Text classification tends to perform much better with little supervision as opposed to none: common techniques such as sentiment analysis and opinion mining have been performed mostly with supervised learning (Dasgupta et al. 2009)
+We can observe that there is little change in NMI score if we set the number of component in GMM to be greater than 30. We can see the reason in the comparison between the distribution of the ground truth and the distribution of the clustering (Figure3.1 and Figure3.2). Note that GMM does a great job of constraining the number of nonzero clusters in the range from 30 to 40 even if the we make GMM to assume that there is 50 latent components in Figure3.2. This explains the little change of NMI score if the number of componenets in GMM is set tio be greater than 30. However, the NMI score of 0.34 is not very satisfactory but it is acceptable considering the imbalanced class distribution and the number of classes being such large. Text classification tends to perform much better with little supervision as opposed to none: common techniques such as sentiment analysis and opinion mining have been performed mostly with supervised learning (Dasgupta et al. 2009)
 
 ### Result
-In conclusion, we can see from the result of GMM that applying dimensionality reduction using PCA does reduce the neagtive effect of high dimensionality. We observe that the number of principal component that best fits our goal is in the range of 80 to 100. We also observe that the clustering given buy GMM is robust since the number of nonzero clusters is similar to the number of classes in the ground truth. Algouth the NMI score is low, we believe the performance can be improved if a little bit of supervization is involved. The observations and results from the unsupervised learning will help us implement the semi-supervised or supervised learning in the remaining portion of this project. 
+In conclusion, we can see from the result of GMM that applying dimensionality reduction using PCA does reduce the neagtive effect of high dimensionality. We observe that the number of principal component that best fits our goal is in the range of 80 to 100. We also observe that the clustering given buy GMM is robust since the number of nonzero clusters is similar to the number of classes in the ground truth. Although the NMI score is low, we believe the performance can be improved if a little bit of supervization is involved. The observations and results from the unsupervised learning will help us implement the semi-supervised or supervised learning in the remaining portion of this project. 
 
 
 ## Supervised Learning
 We plan to train various supervised classifiers including Naive Bayes, SVM, and neural network on our data. Note that different models utilize different feature extraction techniques. For neural network, we will use the cross-entropy loss function.
 
+<!---
 ## Result
 We look to see how closely the unsupervised learning clusters matches the ground truth clusters and whether it is prone to outliers. We can compare our clusters to the ground truth clusters to see which ones better match the data. For the supervised learning, we will see the accuracy to which the classifier works on other papers.
 
+<!--
 ## Discussion
 The best outcome would be for the supervised learning classification to have a high accuracy. This would mean that the words in the title and abstract tell you what topic a paper is in. We plan to submit our work to the Kaggle competition as well as seeing if Arxiv or jounals would want to use this for automatic topic selection.
+
 
 ## Reference
 1. Griffey, J., Yelton, A., Kim, B., & Boman, C. (2019). Artificial Intelligence and Machine Learning in Libraries. ALA TechSource.
