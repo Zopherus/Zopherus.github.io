@@ -12,7 +12,7 @@ We examined up to 100000 articles from the 1.7 million articles (of all fields) 
 
 From the Computer Science articles, we examine their abstracts and preprocess the text before we build the features representations of them. We remove the stop words from all the abstracts. The reference of English stop words we use is from NLTK (The Natural Language Toolkit) (Bird et al., 2009). Many of the stop words are pronouns, prepositions, and conjunctions such as “i”, “me” and “if”. Besides, we only keep the words that do not contain digits. The last step is to lemmatize the words. After lemmatization, “cat” and “cats” will be treated as the same word.
 
-For performance reasons, we trim the vocabulary to only the most frequently used K (hyperparameter) number of words. Then, we extract the features using the bag-of-words method: each article represents a data point, where each feature corresponds to the frequency of a word appearing.
+For performance reasons, we trim the vocabulary to only the most frequently used K (hyperparameter) number of words. The default value of K we used is 10000. Then, we extract the features using the bag-of-words method: each article represents a data point, where each feature corresponds to the frequency of a word appearing.
 
 We used the term frequency–inverse document frequency (tf-idf) (Sparck Jones, K. 1972) statistic to modify our bag of words matrix to have each word weighted. The purpose of this modification is that we do not want to treat the words that occur in almost any documents in the same way as we treat the words that only occur in a small number of documents. We plot correlation coefficients between features. However, the correlation matrix before and after were nearly identical. This is expected since the correlation coefficients are normalized against the standard deviation of the data.
 
@@ -36,16 +36,20 @@ This indicates that it may be beneficial to apply PCA on our data before doing c
 
 ### Dimensionality Reduction and Clustering
 We apply principal component analysis to our data. We do this for two purposes. The first goal is to reduce the dimension of the data so running the clustering algorithm such as K-means and GMM is less expensive. Another goal of doing PCA is to avoid the curse of dimensionality since the Bag-of-Word representation usually has a large number of features.
+<p>
+  <img src="/images/pca-variance.png" width="600" height="400" />
+  <em> Figure 2</em>
+</p>
 
 We trained Gaussian Mixture Model (GMM) on the data. Below is the distribution of classes in the ground truth and the distribution of classes in the clustering of GMM.
 <p>
   <img src="/images/class-distribution.png" width="600" height="400" />
-  <em> Figure 2.1</em>
+  <em> Figure 3.1</em>
 </p>
 
 <p>
   <img src="/images/GMM-distribution.png" width="600" height="400" />
-  <em> Figure 2.2</em>
+  <em> Figure 3.2</em>
 </p>
 
 We go through the hyperparameter tuning process to determine the optimal hyperparameters, such as number of classes, for those models. The results of clustering using GMM may help us train a better supervised classifier later. One technique that may utilize clustering methods is introduced by (Nigam et al. 2000), a semi-supervised method using EM and Naive bayes when labeled data is limited.
@@ -64,7 +68,7 @@ We compare the NMI scores of GMM when different number of principal components i
 
 <p>
   <img src="/images/pc-score.png" width="600" height="400" />
-  <em> Figure 3</em>
+  <em> Figure 4</em>
 </p>
 
 Note that the best NMI scores occur when the number of principal components is around 80-100 and it goes down if more principal components are used. This shows that the dimensionality reduction procedure does improve the result of clustering in GMM.
@@ -73,9 +77,9 @@ Although the number of classes in the ground truth is known, we still use the EL
 
 <p>
   <img src="/images/nc-score.png" width="600" height="400" />
-  <em> Figure 4</em>
+  <em> Figure 5</em>
 </p>
-We can observe that there is little change in NMI score if we set the number of component in GMM to be greater than 30. We can see the reason in the comparison between the distribution of the ground truth and the distribution of the clustering (Figure2.1 and Figure2.2). Note that GMM does a great job of constraining the number of nonzero cluster in the range from 30 to 40 even if the we make GMM to assume that there is 50 latent components in Figure2.2. This explains the little change of NMI score if the number of componenets in GMM is set tio be greater than 30. However, the NMI score of 0.34 is not very satisfactory but it is acceptable considering the imbalanced class distribution and the number of classes being such large. Text classification tends to perform much better with little supervision as opposed to none: common techniques such as sentiment analysis and opinion mining have been performed mostly with supervised learning (Dasgupta et al. 2009)
+We can observe that there is little change in NMI score if we set the number of component in GMM to be greater than 30. We can see the reason in the comparison between the distribution of the ground truth and the distribution of the clustering (Figure3.1 and Figure3.2). Note that GMM does a great job of constraining the number of nonzero cluster in the range from 30 to 40 even if the we make GMM to assume that there is 50 latent components in Figure3.2. This explains the little change of NMI score if the number of componenets in GMM is set tio be greater than 30. However, the NMI score of 0.34 is not very satisfactory but it is acceptable considering the imbalanced class distribution and the number of classes being such large. Text classification tends to perform much better with little supervision as opposed to none: common techniques such as sentiment analysis and opinion mining have been performed mostly with supervised learning (Dasgupta et al. 2009)
 
 
 ## Supervised Learning
