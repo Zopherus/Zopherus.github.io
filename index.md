@@ -57,7 +57,15 @@ We used the Normalized Mutual Information (NMI) metric to evaluate our clusterin
 </p>
 
 ### Hyperparameter Tuning
-Many hyper-parameters are involved in our processing of the texts. For instance, only the words of top k frequencies are used as features in the bag-of-word representation since it is impractical to use all of the unique words as features. There are other hyper-parameters such as the number of principal components in PCA and the number of clusters in GMM. 
+Many hyper-parameters are involved in our processing of the texts. For instance, only the words of top k frequencies are used as features in the bag-of-word representation since it is impractical to use all of the unique words as features. There are other hyper-parameters such as the number of principal components in PCA and the number of clusters in GMM.
+
+We compare the NMI scores of GMM when different number of principal components is used in PCA. Below is the result of applying GMM (the number of latent components is set to be the number of classes in the groun truth) when different number of principal components in used in PCA.
+
+<p>
+  <img src="/images/pc-score.png" width="600" height="400" />
+  <em> Figure 3</em>
+</p>
+
 
 Although the number of classes in the ground truth is known, we still use the ELBOW method to determine the best choice for the number of clustering. In the ELBOW method, we use 5245 CS articles and we set the maximum number of vocabulary to be 20000 and the number of principal components to be 200. Below is the result of the ELBOW method.
 
