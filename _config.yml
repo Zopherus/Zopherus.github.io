@@ -1,5 +1,5 @@
 theme: jekyll-theme-cayman
 title: Topic Modeling of Research Papers
-description:
+description: |
   Use unsupervised learning and supervised learning technique to classify research paper into different topics
   Andrew Peng, Ziyuan Cao, Eric Zhu, Nathan Soedjak
