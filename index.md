@@ -39,7 +39,6 @@ We apply principal component analysis to our data. We do this for two purposes. 
 We trained Gaussian Mixture Model (GMM) on the data. Below is the distribution of classes in the ground truth and the distribution of classes in the clustering of GMM.
 <p>
   <img src="/images/classs-distribution.png" width="600" height="400" />
-  
   <em> Figure 2</em>
 </p>
 
