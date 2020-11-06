@@ -75,7 +75,6 @@ Although the number of classes in the ground truth is known, we still use the EL
 </p>
 We can observe that there is little change in NMI score if we set the number of component in GMM to be greater than 30. We can see the reason in the comparison between the distribution of the ground truth and the distribution of the clustering (Figure2.1 and Figure2.2). Note that GMM does a great job of constraining the number of nonzero cluster in the range from 30 to 40 even if the we make GMM to assume that there is 50 latent components in Figure2.2. This explains the little change of NMI score if the number of componenets in GMM is set tio be greater than 30. However, the NMI score of 0.34 is not very satisfactory but it is acceptable considering the imbalanced class distribution and the number of classes being such large.
 
-### Experiment and Result
 
 ## Supervised Learning
 We plan to train various supervised classifiers including Naive Bayes, SVM, and neural network on our data. Note that different models utilize different feature extraction techniques. For neural network, we will use the cross-entropy loss function.
