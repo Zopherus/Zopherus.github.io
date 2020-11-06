@@ -26,7 +26,7 @@ Below is the visualization of the correlation matrices before and after applying
 <img src="/images/correlation-tf-idf.png" width="400" height="400" />
 <em> Figure 1</em>
 
-However, note that these matrices only show the first 50 features. A sorting of pairs of words based on their correlation coefficients shows that there are some correlated features. Some exmaples are:
+However, note that these matrices only show the first 50 features. A sorting of pairs of words based on their correlation coefficients shows that there are many correlated features. Some exmaples are:
 
 1. astrobiology, geology (1.0)
 2. lifestyle, religion (1.0)
