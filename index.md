@@ -58,6 +58,8 @@ Although the number of classes in the ground truth is known, we still use the EL
 
 <img src="/images/nc-score.png" width="600" height="400" />
 
+We can observe that there is little change in NMI score if we set the number of component in GMM to be greater than 30. We can see the reason in the class distribution in the groun truth (Figure 2).
+
 ### Experiment and Result
 
 ## Supervised Learning
