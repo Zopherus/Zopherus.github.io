@@ -73,7 +73,7 @@ We compare the NMI scores of GMM when different number of principal components i
 
 Note that the best NMI scores occur when the number of principal components is around 80-100 and it goes down if more principal components are used. This shows that the dimensionality reduction procedure does improve the result of clustering in GMM.
 
-Although the number of classes in the ground truth is known, we still use the ELBOW method to determine the best choice for the number of clustering. In the ELBOW method, we use 5245 CS articles and we set the maximum number of vocabulary to be 20000 and the number of principal components to be 200. Below is the result of the ELBOW method.
+Although the number of classes in the ground truth is known, we still use the ELBOW method to determine the best choice for the number of clustering. In the ELBOW method, we use 5245 CS articles and we set the maximum number of vocabulary to be 10000 and the number of principal components to be 200. Below is the result of the ELBOW method.
 
 <p>
   <img src="/images/nc-score.png" width="600" height="400" />
