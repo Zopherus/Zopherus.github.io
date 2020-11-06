@@ -32,8 +32,7 @@ However, note that these matrices only show the first 50 features. A sorting of 
 2. lifestyle, religion (1.0)
 3. Zombie, Ubuntu (1.0)
 
-
-The visualization for the covariance matrices before and after applying tf-idf show the change of scale.
+This indicates that it may be beneficial to apply PCA on our data before doing clustering.
 
 ### Dimensionality Reduction and Clustering
 We apply principal component analysis to our data. We do this for two purposes. The first goal is to reduce the dimension of the data so running the clustering algorithm such as K-means and GMM is less expensive. Another goal of doing PCA is to avoid the curse of dimensionality since the Bag-of-Word representation usually has a large number of features.
