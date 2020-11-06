@@ -35,7 +35,7 @@ However, note that these matrices only show the first 50 features. A sorting of 
 This indicates that it may be beneficial to apply PCA on our data before doing clustering.
 
 ### Dimensionality Reduction and Clustering
-We apply principal component analysis to our data. We do this for two purposes. The first goal is to reduce the dimension of the data so running the clustering algorithm such as K-means and GMM is less expensive. Another goal of doing PCA is to avoid the curse of dimensionality since the Bag-of-Word representation usually has a large number of features.
+We apply principal component analysis to our data. We do this for two purposes. The first goal is to reduce the dimension of the data so running the clustering algorithm such as K-means and GMM is less expensive. Another goal of doing PCA is to avoid the curse of dimensionality since the Bag-of-Word representation usually has a large number of features. Below is the variance explained for different number of principal components.
 <p>
   <img src="/images/pac-variance.png" width="600" height="400" />
   <em> Figure 2</em>
