@@ -56,7 +56,7 @@ We used the Normalized Mutual Information (NMI) metric to evaluate our clusterin
   <img src="https://latex.codecogs.com/gif.latex?NMI(Y,C)=\dfrac{2I(Y,C)}{H(Y)&plus;H(C)}" title="NMI(Y,C)=\dfrac{2I(Y,C)}{H(Y)+H(C)}" />
 </p>
 
-### Hyperparameter Tuning
+### Experiment and Hyperparameter Tuning
 Many hyper-parameters are involved in our processing of the texts. For instance, only the words of top k frequencies are used as features in the bag-of-word representation since it is impractical to use all of the unique words as features. There are other hyper-parameters such as the number of principal components in PCA and the number of clusters in GMM.
 
 We compare the NMI scores of GMM when different number of principal components is used in PCA. Below is the result of applying GMM (the number of latent components is set to be the number of classes in the groun truth) when different number of principal components in used in PCA.
