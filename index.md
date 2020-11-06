@@ -30,6 +30,7 @@ However, note that these matrices only show the first 50 features. A sorting of 
 
 1. astrobiology, geology (1.0)
 2. lifestyle, religion (1.0)
+3. Zombie, Ubuntu (1.0)
 
 
 The visualization for the covariance matrices before and after applying tf-idf show the change of scale.
