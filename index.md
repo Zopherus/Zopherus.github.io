@@ -91,3 +91,7 @@ The best outcome would be for the supervised learning classification to have a h
 1. Griffey, J., Yelton, A., Kim, B., & Boman, C. (2019). Artificial Intelligence and Machine Learning in Libraries. ALA TechSource.
 2. Kowsari, K.; Jafari Meimandi, K.; Heidarysafa, M.; Mendu, S.; Barnes, L.; Brown, D. Text Classification Algorithms: A Survey. Information 2019, 10, 150.
 3. Anupriya, P. & Karpagavalli, S.. (2015). LDA based topic modeling of journal abstracts. 1-5. 10.1109/ICACCS.2015.7324058. 
+4. Nigam, K., McCallum, A. K., Thrun, S., & Mitchell, T. (2000). Text classification from labeled and unlabeled documents using EM. Machine learning, 39(2-3), 103-134.
+5. Jones, K. S. (1972). A statistical interpretation of term specificity and its application in retrieval. Journal of documentation.
+6. Dasgupta, S., & Ng, V. (2009, August). Topic-wise, sentiment-wise, or otherwise? Identifying the hidden dimension for unsupervised text classification. In Proceedings of the 2009 Conference on Empirical Methods in Natural Language Processing (pp. 580-589).
+7. Bird, S., Klein, E., & Loper, E. (2009). Natural language processing with Python: analyzing text with the natural language toolkit. " O'Reilly Media, Inc.".
