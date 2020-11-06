@@ -69,8 +69,10 @@ We compare the NMI scores of GMM when different number of principal components i
 
 Although the number of classes in the ground truth is known, we still use the ELBOW method to determine the best choice for the number of clustering. In the ELBOW method, we use 5245 CS articles and we set the maximum number of vocabulary to be 20000 and the number of principal components to be 200. Below is the result of the ELBOW method.
 
-<img src="/images/nc-score.png" width="600" height="400" />
-
+<p>
+  <img src="/images/nc-score.png" width="600" height="400" />
+  <em> Figure 4</em>
+</p>
 We can observe that there is little change in NMI score if we set the number of component in GMM to be greater than 30. We can see the reason in the comparison between the distribution of the ground truth and the distribution of the clustering (Figure2.1 and Figure2.2). Note that GMM does a great job of constraining the number of nonzero cluster in the range from 30 to 40 even if the we make GMM to assume that there is 50 latent components in Figure2.2. This explains the little change of NMI score if the number of componenets in GMM is set tio be greater than 30. However, the NMI score of 0.34 is not very satisfactory but it is acceptable considering the imbalanced class distribution and the number of classes being such large.
 
 ### Experiment and Result
