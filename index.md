@@ -5,14 +5,14 @@ Document classification is a traditional problem in text mining and Natural Lang
 
 The dataset we use is the [arXiv Dataset](https://www.kaggle.com/Cornell-University/arxiv) on Kaggle. It contains more than 1.7 million scholarly paper across STEM and is a mirror of the original ArXiv dataset maintained by Cornell University. Among the features, two most useful for us is categories (will be used in the supervised learning part) and abstract.
 
-## Unsurpervised Learning
+## Unsupervised Learning
 We conducted unsupervised learning on our dataset of Computer Science articles via clustering. The purpose of doing the unsupervised learning is to generate a clustering that will assist in training a better supervised classifier later. 
 ### Data Cleaning and Feature Extraction
 We examined up to 100000 articles from the 1.7 million articles (of all fields) offered on arXiv, and selected the articles in the Computer Science category (5245 CS articles). The Computer Science category itself has several dozen subcategories, so we use those subcategories as ground truth labels to evaluate our clustering.
 
 From the Computer Science articles, we examine their abstracts and preprocess the text before we build the features representations of them. We remove the stop words from all the abstracts. The reference of English stop words we use is from NLTK (The Natural Language Toolkit) (Bird et al., 2009). Many of the stop words are pronouns, prepositions, and conjunctions such as “i”, “me” and “if”. Additionally, we only keep the words that do not contain digits. The last step is to lemmatize the words. After lemmatization, “cat” and “cats” will be treated as the same word.
 
-For performance reasons, we trim the vocabulary to only the most frequently used K (a hyperparameter) number of words. The default value of K we used is 10000. Then, we extract the features using the bag-of-words method: each article represents a data point, where each feature corresponds to the frequency of a word appearing.
+For performance reasons, we trim the vocabulary to only the most frequently used K (a hyperparameter) number of words. The default value of K we used is 10000. This also results in the dataset having very few outliers since most articles will be similar to others in the count of commonly used words. We confirmed that there were no outliers using DBSCAN as well. Then, we extract the features using the bag-of-words method: each article represents a data point, where each feature corresponds to the frequency of a word appearing.
 
 We used the term frequency–inverse document frequency (tf-idf) (Sparck Jones, K. 1972) statistic to modify our bag of words matrix to have each word weighted. The purpose of this modification is that we do not want to treat the words that occur in almost any documents in the same way as we treat the words that only occur in a small number of documents. We plot correlation coefficients between features. However, the correlation matrix before and after were nearly identical. This is expected since the correlation coefficients are normalized against the standard deviation of the data.
 
