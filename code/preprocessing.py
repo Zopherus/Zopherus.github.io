@@ -1,4 +1,5 @@
 import os
+import sys
 import string
 import numpy as np
 import matplotlib.pyplot as plt
@@ -59,10 +60,10 @@ label2index = dict()
 label_index = 0
 label2count = dict()
 
-discarded_class = {"GL"}
+discarded_class = {"GL", "OS", "PF", "MS", "GR", "SC", "MA", "ET", "AR", "MM", "NA", "SD"}
 desired_class = {"LG", "NI", "CL", "CR"}
 for line in lines:
-    if line_count >= 1000000:
+    if line_count >= 500000:
         break
     line_count += 1
     article = json.loads(line)
@@ -84,6 +85,7 @@ for line in lines:
                 label2count[class_labels[0].split(".")[1]] += 1
             target.append(label2index[class_labels[0].split(".")[1]])
 target = np.array(target)
+np.save("target.npz", target)
 sorted_label_count = sorted(label2count.items(), key=lambda x: x[1], reverse=True)
 print(sorted_label_count)
 label_count = []
@@ -105,15 +107,16 @@ tag_map['V'] = wn.VERB
 tag_map['R'] = wn.ADV
 stopwords = set(stopwords.words("english"))
 cleaned_abstract_list = []
+word_Lemmatized = WordNetLemmatizer()
 for abstract in tqdm(abstract_list):
     words = word_tokenize(abstract)
     content = []
-    word_Lemmatized = WordNetLemmatizer()
     for word, tag in pos_tag(words):
         if word.isalpha() and word not in stopwords:
-            word = word_Lemmatized.lemmatize(word, tag_map[tag[0]])
+            word = word_Lemmatized.lemmatize(word, pos=tag_map[tag[0]])
             content.append(word)
-    cleaned_abstract_list.append(content)
+    cleaned_abstract_list.append(words)
+
 
 # NUM_PROCESSESS = 6
 # pool = Pool(processes=NUM_PROCESSESS)
@@ -177,7 +180,8 @@ for word in vocabulary:
     index += 1
 
 # create bag of words
-dataset_matrix = np.zeros( (len(abstract_list),len(word2index)))
+print(len(abstract_list), len(word2index), sep=" ")
+dataset_matrix = np.zeros((len(abstract_list),len(word2index)))
 data_index = 0
 for abstract in tqdm(cleaned_abstract_list):
     for word in abstract:
@@ -216,6 +220,7 @@ idf = np.log10(len(abstract_list) / (document_frequency + 1))
 # tf-idf
 
 dataset_matrix = dataset_matrix * idf.T
+np.save('processed_data.npz', dataset_matrix)
 
 # correlation = np.corrcoef(dataset_matrix[:,0:50].T)
 # plt.figure()
@@ -223,31 +228,6 @@ dataset_matrix = dataset_matrix * idf.T
 # plt.colorbar()
 # plt.title("Correlation Between Features After tf-idf")
 # plt.savefig("correlation-tf-idf.png", dpi=600)
-
-# print(dataset_matrix.shape)
-# print("Finished creating bag of words matrix using ",(time.time() - bow_start), "s")
-
-print("PCA ...")
-print(dataset_matrix.shape)
-pca = IncrementalPCA(n_components=100, batch_size=1000)
-data_reduced = pca.fit_transform(dataset_matrix)
-
-print(data_reduced.shape)
-
-# data_reduced = dataset_matrix
-
-X_training, X_testing, y_training, y_testing = model_selection.train_test_split(data_reduced, target, test_size=0.5)
-
-
-classifier = SVC()
-
-print("Trainig SVM ...")
-classifier.fit(X_training, y_training)
-
-pred = classifier.predict(X_testing)
-
-print("-------accuracy: ", accuracy_score(pred, y_testing), "----------")
-
 
 
 
