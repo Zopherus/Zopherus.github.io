@@ -92,7 +92,7 @@ We scale our models up by using 65093 CS articles for the supervised learning se
 ...
 
 ### Neural Network
-...
+We use a fully connected neural network with 2 hidden layers. The output layer is a vector of length equal to the number of potential labels. The activation function for the output layer is sigmoid function. Note that softmax activation cannot be used here since we are modeling the probability distribution against each potential class instead of a distribution over all potential classes.
 
 <p>
   <img src="/images/nn.png" width="600" height="600" />
