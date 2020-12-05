@@ -15,6 +15,7 @@ from nltk import pos_tag
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet as wn
 
+from sklearn.datasets import make_multilabel_classification
 from sklearn.datasets import load_files
 from sklearn.decomposition import IncrementalPCA
 from sklearn.decomposition import PCA
@@ -37,8 +38,6 @@ import ijson
 
 from yellowbrick.features import Rank2D
 
-import DataCleaningUtil
-
 print("Reading json file ...")
 reading_file_start = time.time()
 
@@ -55,44 +54,77 @@ abstract_list = [] # a list of abstracts
 target = [] # a list of categories for each abstract
 
 # load data, encode class label
+num_lines = 500000
+num_labels_threshold = 4000
 line_count = 0
 label2index = dict()
 label_index = 0
 label2count = dict()
 
-discarded_class = {"GL", "OS", "PF", "MS", "GR", "SC", "MA", "ET", "AR", "MM", "NA", "SD"}
-desired_class = {"LG", "NI", "CL", "CR"}
+# count class numbers
 for line in lines:
-    if line_count >= 500000:
+    if line_count >= num_lines:
         break
     line_count += 1
     article = json.loads(line)
-    class_labels = article["categories"].split()
-    if class_labels[0].split(".")[0] == "cs":
-        # if (class_labels[0].split(".")[1] == "CV" and cv_count < 4000) or (class_labels[0].split(".")[1] == "PL" and pl_count < 4000):
-        #     if class_labels[0].split(".")[1] == "CV":
-        #         cv_count += 1
-        #     if class_labels[0].split(".")[1] == "PL":
-        #         pl_count += 1
-        if class_labels[0].split(".")[1] in desired_class:
-            abstract_list.append(article["abstract"])
-            if class_labels[0].split(".")[1] not in label2index.keys():
-                label2index.update({class_labels[0].split(".")[1]: label_index})
-                label_index += 1
-            if class_labels[0].split(".")[1] not in label2count.keys():
-                label2count.update({class_labels[0].split(".")[1]: 1})
+    categories_entry = article["categories"].split()
+    has_CS = False
+    class_labels = []
+    for category in categories_entry:
+        if category.split(".")[0] == "cs":
+            has_CS = True
+            class_labels.append(category.split(".")[1])
+    if has_CS:
+        for label in class_labels:
+            if label not in label2count.keys():
+                label2count.update({label: 1})
             else:
-                label2count[class_labels[0].split(".")[1]] += 1
-            target.append(label2index[class_labels[0].split(".")[1]])
-target = np.array(target)
-np.save("target.npz", target)
+                label2count[label] += 1
 sorted_label_count = sorted(label2count.items(), key=lambda x: x[1], reverse=True)
 print(sorted_label_count)
-label_count = []
-for label, count in sorted_label_count:
-    label_count.append(count)
+desired_class = set()
+for label, count in label2count.items():
+    if count >= num_labels_threshold:
+        desired_class.add(label)
+
+label2index = dict()
+index = 0
+for label in desired_class:
+    label2index.update({label: index})
+    index += 1
 print(label2index)
-print(len(label2index))
+
+# load valid data
+line_count = 0
+for line in lines:
+    if line_count >= num_lines:
+        break
+    line_count += 1
+    article = json.loads(line)
+    categories_entry = article["categories"].split()
+    has_CS = False
+    class_labels = []
+    for category in categories_entry:
+        if category.split(".")[0] == "cs":
+            has_CS = True
+            class_labels.append(category.split(".")[1])
+    if has_CS:
+        has_desired_label = False
+        label_vector = np.zeros(len(label2index))
+        for label in class_labels:
+            if label in desired_class:
+                has_desired_label = True
+                label_vector[label2index[label]] = 1
+        if has_desired_label:
+            abstract_list.append(article["abstract"])
+            target.append(label_vector)
+target = np.array(target)
+np.save(f"target_{num_labels_threshold}.npz", target)
+print(target.shape)
+
+# label_count = []
+# for label, count in sorted_label_count:
+#     label_count.append(count)
 # plt.bar(range(0,len(sorted_label_count)), label_count)
 # plt.xlabel("class")
 # plt.ylabel("frequency")
@@ -118,36 +150,6 @@ for abstract in tqdm(abstract_list):
     cleaned_abstract_list.append(words)
 
 
-# NUM_PROCESSESS = 6
-# pool = Pool(processes=NUM_PROCESSESS)
-# chunked_abstract_list = []
-# chunck_size = len(abstract_list) // NUM_PROCESSESS
-# for i in range(0, len(abstract_list), chunck_size):
-#     chunked_abstract_list.append(abstract_list[i: i + chunck_size])
-# print(len(chunked_abstract_list))
-# results = [pool.apply(DataCleaningUtil.clean, args=(abstract_list,)) for sub_abstract_list in chunked_abstract_list]
-# cleaned_abstract_list = []
-# for result in results:
-#     for abstract in result:
-#         cleaned_abstract_list.append(abstract)
-
-
-# Train_X, Test_X, Train_Y, Test_Y = model_selection.train_test_split(cleaned_abstract_list, target, test_size=0.3)
-# Tfidf_vect = TfidfVectorizer(max_features=5000)
-# Tfidf_vect.fit(cleaned_abstract_list)
-# Train_X_Tfidf = Tfidf_vect.transform(Train_X)
-# Test_X_Tfidf = Tfidf_vect.transform(Test_X)
-# print("start traning SVM")
-# classifier = SVC()
-# classifier.fit(Train_X_Tfidf, Train_Y)
-
-# pred = classifier.predict(Test_X_Tfidf)
-
-# print("accuracy: ", accuracy_score(pred, Test_Y))
-
-
-
-
 # build vocabulary, only include words with top k highest frequencies
 print("Creating bag of words ...")
 bow_start = time.time()
@@ -161,7 +163,7 @@ for abstract in tqdm(cleaned_abstract_list):
 sorted_word_frequency = sorted(word_frequency.items(), key=lambda x: x[1], reverse=True) # sort the word frequency table by the frequency
 
 vocabulary = set()
-k = 10000
+k = 5000
 count = 1
 for word, _ in sorted_word_frequency:
     if count > k:
@@ -210,7 +212,7 @@ for abstract in tqdm(cleaned_abstract_list):
 
 # inverse document frequency
 document_frequency = np.zeros((len(word2index), 1))
-for abstract in cleaned_abstract_list:
+for abstract in tqdm(cleaned_abstract_list):
     for word in abstract:
         if word in word2index.keys():
             document_frequency[word2index[word]] += 1
@@ -220,7 +222,7 @@ idf = np.log10(len(abstract_list) / (document_frequency + 1))
 # tf-idf
 
 dataset_matrix = dataset_matrix * idf.T
-np.save('processed_data.npz', dataset_matrix)
+np.save(f'processed_data_{num_labels_threshold}.npz', dataset_matrix)
 
 # correlation = np.corrcoef(dataset_matrix[:,0:50].T)
 # plt.figure()
