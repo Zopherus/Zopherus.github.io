@@ -95,7 +95,7 @@ We scale our models up by using 65093 CS articles for the supervised learning se
 ...
 
 <p>
-  <img src="/images/nn.png" width="400" height="600" />
+  <img src="/images/nn.png" width="600" height="600" />
   <em> Figure 6</em>
 </p>
 
