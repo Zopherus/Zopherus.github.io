@@ -86,7 +86,7 @@ In conclusion, we can see from the result of GMM that applying dimensionality re
 
 
 ## Supervised Learning
-We plan to train various supervised classifiers including Naive Bayes, SVM, and neural network on our data. Note that different models utilize different feature extraction techniques. For neural network, we will use the cross-entropy loss function.
+We choose neural network as the supervised learning technique purposefully. We reobserved the arXiv dataset and found two problems that may negatively affect our supervised learning models. The first problem is that the distribution of classes is very imbalanced as shown in Figure. The second problem is that the difference between many subcategoires in the CS category is ambiguous even to human. This suggests that it may be a bad idea to only use the first-ranked label for each data point. Therefore we form this supervised learning problem as a multiclass, multilabel classification problem where each data point can take more than one labels. 
 
 <!--
 ## Result
