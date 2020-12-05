@@ -94,6 +94,11 @@ We scale our models up by using 65093 CS articles for the supervised learning se
 ### Neural Network
 ...
 
+<p>
+  <img src="/images/nn.png" width="400" height="600" />
+  <em> Figure 6</em>
+</p>
+
 ### Hyperparameter Tuning
 ...
 
