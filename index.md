@@ -86,7 +86,16 @@ In conclusion, we can see from the result of GMM that applying dimensionality re
 
 
 ## Supervised Learning
-We choose neural network as the supervised learning technique purposefully. We reobserved the arXiv dataset and found two problems that may negatively affect our supervised learning models. The first problem is that the distribution of classes is very imbalanced as shown in Figure. The second problem is that the difference between many subcategoires in the CS category is ambiguous even to human. This suggests that it may be a bad idea to only use the first-ranked label for each data point. Therefore we form this supervised learning problem as a multiclass, multilabel classification problem where each data point can take more than one labels. Then neural network appears to be a natural choice since it supports multilabel classification easily by making the output layer a vector of length equal to the number of all potential labels. 
+We choose neural network as the supervised learning technique purposefully. We reobserved the arXiv dataset and found two problems that may negatively affect our supervised learning models. The first problem is that the distribution of classes is very imbalanced as shown in Figure. The second problem is that the difference between many subcategoires in the CS category is ambiguous even to human. This suggests that it may be a bad idea to only use the first-ranked label for each data point. Therefore we form this supervised learning problem as a multiclass, multilabel classification problem where each data point can take more than one labels. Then neural network appears to be a natural choice since it supports multilabel classification easily by making the output layer a vector of length equal to the number of all potential labels.
+
+### Neural Network
+...
+
+### Hyperparameter Tuning
+...
+
+### Result
+...
 
 <!--
 ## Result
