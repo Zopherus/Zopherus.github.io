@@ -108,15 +108,12 @@ We use a fully connected neural network with 2 hidden layers. The output layer i
 
 
 ### Evaluation Metrics
-Evaluation for a multilabel classifier is more challenging than that for a one-label classifier. Counting exact match is usually not preferred since it is too strict. Therefore the evaluation metrics for multilabel classification should be different from those of one-label classification. We considered four types of evaluation metrics summarized by (Sorower, 2017). They are example-based metrics, label-based macro averaged metrics, and label-based micro averaged metrics. We can compute precision, recall, and F1-measure in each of those types of metrics. Since F1-measure is the harmonic mean of precision and recall, we focus on F1-measure in example-based and label-based methods. 
+Evaluation for a multilabel classifier is more challenging than that for a one-label classifier. Counting exact match is usually not preferred since it is too strict. Therefore the evaluation metrics for multilabel classification should be different from those of one-label classification. We considered four types of evaluation metrics summarized by (Sorower, 2017). They are example-based metrics, label-based macro averaged metrics, and label-based micro averaged metrics. One can compute precision, recall, and F1-measure for each of those types of metrics. Here we use the example-based F1-measure. F1-measure is good at balancing precision and recall. Example based method evaluates the average difference between the predicted labels and the actual labels for each example and it can capture the notion of partially correct (Sorower, 2017).
 
 Let <img src="https://latex.codecogs.com/gif.latex?Z_i" title="Z_i" /> be the predicted labels for the ith article and <img src="https://latex.codecogs.com/gif.latex?Y_i" title="Y_i" /> be the ground truth labels for the ith article. If we consider n data points, then
 
 <p align="center">
   <img src="https://latex.codecogs.com/gif.latex?{F_1}^{example}&space;=&space;\dfrac{1}{n}&space;\sum_{i=1}^{n}&space;\dfrac{2|Y_i&space;\cap&space;Z_i|}{|Y_i|&space;&plus;&space;|Z_i|}" title="{F_1}^{example} = \dfrac{1}{n} \sum_{i=1}^{n} \dfrac{2|Y_i \cap Z_i|}{|Y_i| + |Z_i|}" />
-</p>
-<p align="center">
-  <img src="https://latex.codecogs.com/gif.latex?{F_1}^{micro}&space;=&space;\dfrac{2&space;\sum_{j=1}^{k}&space;\sum_{i=1}^{n}&space;{Y_i}^j&space;{Z_i}^j}{\sum_{j=1}^{k}&space;\sum_{i=1}^{n}&space;{Y_i}^j&space;&plus;&space;\sum_{j=1}^{k}&space;\sum_{i=1}^{n}&space;{Z_i}^j}" title="{F_1}^{micro} = \dfrac{2 \sum_{j=1}^{k} \sum_{i=1}^{n} {Y_i}^j {Z_i}^j}{\sum_{j=1}^{k} \sum_{i=1}^{n} {Y_i}^j + \sum_{j=1}^{k} \sum_{i=1}^{n} {Z_i}^j}" />
 </p>
 
 ### Hyperparameter Tuning
