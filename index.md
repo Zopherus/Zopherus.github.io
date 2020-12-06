@@ -120,7 +120,9 @@ Let <img src="https://latex.codecogs.com/gif.latex?Z_i" title="Z_i" /> be the pr
 For our neural network, there are three sets of hyperparameters: the choice of activation function in hidden layers, the sizes of hidden layers, and the constraint coefficient for L2 regularization. We search through the hyperparameters space exhaustively and find the hyperparameters with the highest exmpled-based F1-measure using cross validation. The grid search reports that optimal hyperparameters are: tanh as the activation function, the size of the first hidden layers is 300, the size of the second hidden layer is 100, and the regularization coefficient is 1e-4. To visualize the impact of the a single hyperparameter, we present the plot of the F1-score against values of various hyperparameters. 
 
 ### Result
-We compare the performance of the neural network to that of the method of multiple SVMs and the expected performance of random guessing.
+We compare the performance of the neural network to that of the method of multiple SVMs and the expected performance of random guessing. Assumming that the class distribution is balanced, a random guessing classifier would reach a expected F1-score of 0.5. Our data is very imbalanced so we run a simulation to see the expected F1-score of a random guessing classifier.
+
+The previously mentioned SVM method reach a F1-score of 0.68.
 
 <!--
 ## Result
