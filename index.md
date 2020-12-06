@@ -96,6 +96,8 @@ We chose an intuitive model as our baseline model. We transform the multilabel c
   <em> Figure 6</em>
 </p>
 
+This model is very simple and intuitive but it cannot exploit label correlation (Zhang, 2018). It provides a baseline performance that is essentially better than random guessing.
+
 ### Neural Network
 We use a fully connected neural network with 2 hidden layers. The output layer is a vector of length equal to the number of potential labels. The activation function for the output layer is sigmoid function. Note that softmax activation cannot be used here since we are modeling the probability distribution against each potential class instead of a distribution over all potential classes.
 
