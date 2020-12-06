@@ -108,7 +108,8 @@ We use a fully connected neural network with 2 hidden layers. The output layer i
 
 
 ### Evaluation Metrics
-Evaluation for a multilabel classifier is more challenging than that for a one-label classifier. Counting exact match is usually not preferred since it is too strict. Therefore the evaluation metrics for multilabel classification should be different from those of one-label classification. We considered four types of evaluation metrics summarized by (Sorower, 2017). They are example-based metrics, label-based macro averaged metrics, and label-based micro averaged metrics. We can compute precision, recall, and F1-measure in each of those types of metrics. Since F1-measure is the harmonic mean of precision and recall, we focus on F1-measure in example-based and label-based methods.
+Evaluation for a multilabel classifier is more challenging than that for a one-label classifier. Counting exact match is usually not preferred since it is too strict. Therefore the evaluation metrics for multilabel classification should be different from those of one-label classification. We considered four types of evaluation metrics summarized by (Sorower, 2017). They are example-based metrics, label-based macro averaged metrics, and label-based micro averaged metrics. We can compute precision, recall, and F1-measure in each of those types of metrics. Since F1-measure is the harmonic mean of precision and recall, we focus on F1-measure in example-based and label-based methods. $$ \frac{\partial \rho}{\partial t} + \nabla \cdot \vec{j} = 0 \,. \label{eq:continuity} $$
+
 
 <p align="center">
   <img src="https://latex.codecogs.com/gif.latex?{F_1}^{example}&space;=&space;\dfrac{1}{n}&space;\sum_{i=1}^{n}&space;\dfrac{2|Y_i&space;\cap&space;Z_i|}{|Y_i|&space;&plus;&space;|Z_i|}" title="{F_1}^{example} = \dfrac{1}{n} \sum_{i=1}^{n} \dfrac{2|Y_i \cap Z_i|}{|Y_i| + |Z_i|}" />
