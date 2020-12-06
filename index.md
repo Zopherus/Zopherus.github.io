@@ -92,7 +92,7 @@ We scale our models up by using 65093 CS articles for the supervised learning se
 We chose an intuitive model as our baseline model. We transform the multilabel classification problem to multiple binary classification problems. Then we use a support vector machine for each binary classification problem. Given a new article, we infer if it has each label using the corresponding binary classifier.
 
 <p>
-  <img src="/images/svm.png" width="600" height="400" />
+  <img src="/images/SVM.png" width="600" height="400" />
   <em> Figure 6</em>
 </p>
 
