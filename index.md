@@ -115,6 +115,9 @@ Let <img src="https://latex.codecogs.com/gif.latex?Z_i" title="Z_i" /> be the pr
 <p align="center">
   <img src="https://latex.codecogs.com/gif.latex?{F_1}^{example}&space;=&space;\dfrac{1}{n}&space;\sum_{i=1}^{n}&space;\dfrac{2|Y_i&space;\cap&space;Z_i|}{|Y_i|&space;&plus;&space;|Z_i|}" title="{F_1}^{example} = \dfrac{1}{n} \sum_{i=1}^{n} \dfrac{2|Y_i \cap Z_i|}{|Y_i| + |Z_i|}" />
 </p>
+<p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?{F_1}^{micro}&space;=&space;\dfrac{2&space;\sum_{j=1}^{k}&space;\sum_{i=1}^{n}&space;{Y_i}^j&space;{Z_i}^j}{\sum_{j=1}^{k}&space;\sum_{i=1}^{n}&space;{Y_i}^j&space;&plus;&space;\sum_{j=1}^{k}&space;\sum_{i=1}^{n}&space;{Z_i}^j}" title="{F_1}^{micro} = \dfrac{2 \sum_{j=1}^{k} \sum_{i=1}^{n} {Y_i}^j {Z_i}^j}{\sum_{j=1}^{k} \sum_{i=1}^{n} {Y_i}^j + \sum_{j=1}^{k} \sum_{i=1}^{n} {Z_i}^j}" />
+</p>
 
 ### Hyperparameter Tuning
 For our neural network, there are three sets of hyperparameters: the choice of activation function in hidden layers, the sizes of hidden layers, and the constraint coefficient for L2 regularization. We use grid search together with cross validation to find the optimal hyperparameters.
