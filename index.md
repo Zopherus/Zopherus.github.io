@@ -106,6 +106,8 @@ We use a fully connected neural network with 2 hidden layers. The output layer i
   <em> Figure 7</em>
 </p>
 
+The choice of loss function is straightforward. We compute the binary cross entropy for each label entry and add them together.
+
 ### Evaluation Metrics
 Evaluation for a multilabel classifier is more challenging than that for a one-label classifier. Counting exact match is usually not preferred since it is too strict. Therefore the evaluation metrics for multilabel classification should be different from those of one-label classification. We considered four types of evaluation metrics summarized by (Sorower, 2017). They are example-based metrics, label-based macro averaged metrics, and label-based micro averaged metrics. We can compute precision, recall, and F1-measure in each of those types of metrics. 
 
