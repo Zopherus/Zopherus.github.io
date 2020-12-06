@@ -99,20 +99,21 @@ We chose an intuitive model as our baseline model. We transform the multilabel c
 This model is very simple and intuitive but it cannot exploit label correlation (Zhang, 2018). It provides a baseline performance that is essentially better than random guessing.
 
 ### Neural Network
-We use a fully connected neural network with 2 hidden layers. The output layer is a vector of length equal to the number of potential labels. The activation function for the output layer is sigmoid function. Note that softmax activation cannot be used here since we are modeling the probability distribution against each potential class instead of a distribution over all potential classes.
+We use a fully connected neural network with 2 hidden layers. The output layer is a vector of length equal to the number of potential labels. The activation function for the output layer is sigmoid function. Note that softmax activation cannot be used here since we are modeling the probability distribution against each potential class instead of a distribution over all potential classes. The choice of loss function is straightforward. We compute the binary cross entropy for each label entry and add them together. We also add L2 regularization in the loss function to constraint the complexity of the neural network.
 
 <p>
   <img src="/images/nn.png" width="600" height="600" />
   <em> Figure 7</em>
 </p>
 
-The choice of loss function is straightforward. We compute the binary cross entropy for each label entry and add them together.
 
 ### Evaluation Metrics
 Evaluation for a multilabel classifier is more challenging than that for a one-label classifier. Counting exact match is usually not preferred since it is too strict. Therefore the evaluation metrics for multilabel classification should be different from those of one-label classification. We considered four types of evaluation metrics summarized by (Sorower, 2017). They are example-based metrics, label-based macro averaged metrics, and label-based micro averaged metrics. We can compute precision, recall, and F1-measure in each of those types of metrics. Since F1-measure is the harmonic mean of precision and recall, we focus on F1-measure in example-based and label-based methods.
 
+FORMULA
+
 ### Hyperparameter Tuning
-...
+For our neural network, there are three sets of hyperparameters: the choice of activation function in hidden layers, the sizes of hidden layers, and the constraint coefficient for L2 regularization. We use grid search together with cross validation to find the optimal hyperparameters.
 
 ### Result
 ...
