@@ -117,7 +117,7 @@ Let <img src="https://latex.codecogs.com/gif.latex?Z_i" title="Z_i" /> be the pr
 </p>
 
 ### Hyperparameter Tuning
-For our neural network, there are three sets of hyperparameters: the choice of activation function in hidden layers, the sizes of hidden layers, and the constraint coefficient for L2 regularization. We use grid search together with cross validation to find the optimal hyperparameters.
+For our neural network, there are three sets of hyperparameters: the choice of activation function in hidden layers, the sizes of hidden layers, and the constraint coefficient for L2 regularization. We search through the hyperparameters space exhaustively and find the hyperparameters with the highest exmpled-based F1-measure using cross validation. The grid search reports that optimal hyperparameters are: tanh as the activation function, the size of the first hidden layers is 300, the size of the second hidden layer is 100, and the regularization coefficient is 1e-4.
 
 ### Result
 ...
