@@ -89,14 +89,19 @@ In conclusion, we can see from the result of GMM that applying dimensionality re
 We scale our models up by using 65093 CS articles for the supervised learning section. We choose neural network as the supervised learning technique purposefully. We reobserved the arXiv dataset and found two problems that may negatively affect our supervised learning models. The first problem is that the distribution of classes is very imbalanced as shown in Figure. The second problem is that the difference between many subcategoires in the CS category is ambiguous even to human. This suggests that it may be a bad idea to only use the first-ranked label for each data point. Therefore we form this supervised learning problem as a multiclass, multilabel classification problem where each data point can take more than one labels. Then neural network appears to be a natural choice since it supports multilabel classification easily by making the output layer a vector of length equal to the number of all potential labels. Due to the fact that the class distribution is extremely imbalanced, we decided to only use the labels that occur more than 4000 times out of 65093 articles.
 
 ### Baseline
-...
+We chose an intuitive model as our baseline model. We transform the multilabel classification problem to multiple binary classification problems. Then we use a support vector machine for each binary classification problem. Given a new article, we infer if it has each label using the corresponding binary classifier.
+
+<p>
+  <img src="/images/svm.png" width="600" height="400" />
+  <em> Figure 6</em>
+</p>
 
 ### Neural Network
 We use a fully connected neural network with 2 hidden layers. The output layer is a vector of length equal to the number of potential labels. The activation function for the output layer is sigmoid function. Note that softmax activation cannot be used here since we are modeling the probability distribution against each potential class instead of a distribution over all potential classes.
 
 <p>
   <img src="/images/nn.png" width="600" height="600" />
-  <em> Figure 6</em>
+  <em> Figure 7</em>
 </p>
 
 ### Evaluation Metrics
