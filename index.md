@@ -117,10 +117,7 @@ Let <img src="https://latex.codecogs.com/gif.latex?Z_i" title="Z_i" /> be the pr
 </p>
 
 ### Hyperparameter Tuning
-For our neural network, there are three sets of hyperparameters: the choice of activation function in hidden layers, the sizes of hidden layers, and the constraint coefficient for L2 regularization. We search through the hyperparameters space exhaustively and find the hyperparameters with the highest exmpled-based F1-measure using cross validation. The grid search reports that optimal hyperparameters are: tanh as the activation function, the size of the first hidden layers is 300, the size of the second hidden layer is 100, and the regularization coefficient is 1e-4. To visualize the impact of the a single hyperparameter, we present the plot of the F1-score against values of various hyperparameters. 
-
-### Result
-We compare the performance of the neural network to that of the method of multiple SVMs and the expected performance of random guessing. Assumming that the class distribution is balanced, a random guessing classifier would reach a expected F1-score of 0.5. Our data is very imbalanced so we run a simulation to see the expected F1-score of a random guessing classifier.
+For our neural network, there are three sets of hyperparameters: the choice of activation function in hidden layers, the sizes of hidden layers, and the constraint coefficient for L2 regularization. We search through the hyperparameters space exhaustively and find the hyperparameters with the highest exmpled-based F1-measure using cross validation. The grid search reports that optimal hyperparameters are: tanh as the activation function, the size of the first hidden layers is 300, the size of the second hidden layer is 100, and the regularization coefficient is 1e-4. To visualize the impact of the a single hyperparameter, we present the plot of the F1-score against values of various hyperparameters.
 
 <p>
   <img src="/images/HL1.png" width="600" height="400" />
@@ -132,6 +129,11 @@ We compare the performance of the neural network to that of the method of multip
   <img src="/images/RC.png" width="600" height="400" />
   <em> Figure 9</em>
 </p>
+
+Figure 8 shows the influence of the size of hidden layer 1 on the performance of our neural network. The blue line shows that the trainig F1-score keep improving as the size of hidden layer 1 increases. The reason may be that a larger size of the hidden layer give our neural network more complexity to fit the data. However, the testing F1-scores do not show a notable change. This indicates that the neural network are overfitting when we give it larger hidden layers.
+
+### Result
+We compare the performance of the neural network to that of the method of multiple SVMs and the expected performance of random guessing. Assumming that the class distribution is balanced, a random guessing classifier would reach a expected F1-score of 0.5. Our data is very imbalanced so we run a simulation to see the expected F1-score of a random guessing classifier.
 
 The previously mentioned SVM method reach a F1-score of 0.68.
 
