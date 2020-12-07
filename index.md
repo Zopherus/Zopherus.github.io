@@ -132,7 +132,7 @@ For our neural network, there are three sets of hyperparameters: the choice of a
 
 Figure 8 shows the influence of the size of hidden layer 1 on the performance of our neural network. The blue line shows that the trainig F1-score keep improving as the size of hidden layer 1 increases. The reason may be that a larger size of the hidden layer give our neural network more complexity to fit the data. However, the testing F1-scores do not show a notable change. This indicates that the neural network are overfitting when we give it larger hidden layers.
 
-Figure 9 shows influence of different coefficients for L2-regularization on the performance of our neural network. It is expected that the traning F1-score will decrease monotonically as the coeffiicient increase.
+Figure 9 shows influence of different coefficients for L2-regularization on the performance of our neural network. It is expected that the traning F1-score will decrease monotonically as the coeffiicient increase since it constraints the complexity of the model. We can see that the optimal performance is reached at around 1e-4. A regularization coefficient larger than it will constraints our model too tightly.
 
 <p>
   <img src="/images/PCA.png" width="600" height="400" />
