@@ -145,7 +145,7 @@ The last but not least thing we want to mention in our hyperparameter tuning sec
 ### Result
 We compare the performance of the neural network to that of the method of multiple SVMs and the expected performance of random guessing. As mentioned previously, sssumming that the class distribution is balanced, a random guessing classifier would reach a expected F1-score of 0.5. Our data is very imbalanced so we run a simulation to see the expected F1-score of a random guessing classifier.b The simulation of random guessing based on the proportion of each class reports an average F1-score of 0.101.
 
-We fit the previously mentioned group of SVMs model on the test dataset and it reaches a F1-score of 0.68. On the same test dataset, the neural network with the optimal hyperparameter reported by the grid search reaches a F1-score of 
+We fit the previously mentioned group of SVMs model on the test dataset and it reaches a F1-score of 0.68. On the same test dataset, the neural network with the optimal hyperparameter reported by the grid search reaches a F1-score of 0.733. Compared to the result of guessing baseline, the group of SVMs already learns much more pattern in the data. The neural network learns even better (more than 7% percent better) than the group of SVMs.
 
 <!--
 ## Result
