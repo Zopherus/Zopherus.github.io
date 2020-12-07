@@ -124,13 +124,13 @@ We compare the performance of the neural network to that of the method of multip
 
 <p>
   <img src="/images/HL1.png" width="600" height="400" />
-  <em> Figure 7</em>
+  <em> Figure 8</em>
 </p>
 
 
 <p>
   <img src="/images/RC.png" width="600" height="400" />
-  <em> Figure 7</em>
+  <em> Figure 9</em>
 </p>
 
 The previously mentioned SVM method reach a F1-score of 0.68.
