@@ -136,7 +136,7 @@ Figure 9 shows influence of different coefficients for L2-regularization on the 
 
 <p>
   <img src="/images/PCA.png" width="600" height="400" />
-  <em> Figure 9</em>
+  <em> Figure 10</em>
 </p>
 
 ### Result
