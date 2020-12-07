@@ -161,3 +161,5 @@ The best outcome would be for the supervised learning classification to have a h
 5. Jones, K. S. (1972). A statistical interpretation of term specificity and its application in retrieval. Journal of documentation.
 6. Dasgupta, S., & Ng, V. (2009, August). Topic-wise, sentiment-wise, or otherwise? Identifying the hidden dimension for unsupervised text classification. In Proceedings of the 2009 Conference on Empirical Methods in Natural Language Processing (pp. 580-589).
 7. Bird, S., Klein, E., & Loper, E. (2009). Natural language processing with Python: analyzing text with the natural language toolkit. " O'Reilly Media, Inc.".
+8. Zhang, M. L., Li, Y. K., Liu, X. Y., & Geng, X. (2018). Binary relevance for multi-label learning: an overview. Frontiers of Computer Science, 12(2), 191-202.
+9. Sorower, M. S. (2010). A literature survey on algorithms for multi-label learning. Oregon State University, Corvallis, 18, 1-25.
