@@ -122,6 +122,17 @@ For our neural network, there are three sets of hyperparameters: the choice of a
 ### Result
 We compare the performance of the neural network to that of the method of multiple SVMs and the expected performance of random guessing. Assumming that the class distribution is balanced, a random guessing classifier would reach a expected F1-score of 0.5. Our data is very imbalanced so we run a simulation to see the expected F1-score of a random guessing classifier.
 
+<p>
+  <img src="/images/HL1.png" width="600" height="400" />
+  <em> Figure 7</em>
+</p>
+
+
+<p>
+  <img src="/images/RC.png" width="600" height="400" />
+  <em> Figure 7</em>
+</p>
+
 The previously mentioned SVM method reach a F1-score of 0.68.
 
 <!--
