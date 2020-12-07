@@ -116,6 +116,8 @@ Let <img src="https://latex.codecogs.com/gif.latex?Z_i" title="Z_i" /> be the pr
   <img src="https://latex.codecogs.com/gif.latex?{F_1}^{example}&space;=&space;\dfrac{1}{n}&space;\sum_{i=1}^{n}&space;\dfrac{2|Y_i&space;\cap&space;Z_i|}{|Y_i|&space;&plus;&space;|Z_i|}" title="{F_1}^{example} = \dfrac{1}{n} \sum_{i=1}^{n} \dfrac{2|Y_i \cap Z_i|}{|Y_i| + |Z_i|}" />
 </p>
 
+Note that the expected example-based F1-score under the assumption that classes are distributed evenly is 0.5.
+
 ### Hyperparameter Tuning
 For our neural network, there are three sets of hyperparameters: the choice of activation function in hidden layers, the sizes of hidden layers, and the constraint coefficient for L2 regularization. We search through the hyperparameters space exhaustively and find the hyperparameters with the highest exmpled-based F1-measure using cross validation. The grid search reports that optimal hyperparameters are: tanh as the activation function, the size of the first hidden layers is 300, the size of the second hidden layer is 100, and the regularization coefficient is 1e-4. To visualize the impact of the a single hyperparameter, we present the plot of the F1-score against values of various hyperparameters.
 
