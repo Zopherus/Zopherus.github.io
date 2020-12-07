@@ -133,6 +133,8 @@ Figure 8 shows the influence of the size of hidden layer 1 on the performance of
 
 Figure 9 shows influence of different coefficients for L2-regularization on the performance of our neural network. It is expected that the traning F1-score will decrease monotonically as the coeffiicient increase since it constraints the complexity of the model. We can see that the optimal performance is reached at around 1e-4. A regularization coefficient larger than it will constraints our model too tightly.
 
+The last but not least thing we want to mention in our hyperparameter tuning section is about PCA. We have the intuition that using different number of components from PCA will have noticeable influence on the performance of our neural network. Therefore we visualize the influence of number of components in PCA in Figure 10.
+
 <p>
   <img src="/images/PCA.png" width="600" height="400" />
   <em> Figure 10</em>
